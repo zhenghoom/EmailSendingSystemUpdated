@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'></head>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+<body>
+    <section class = 'header'>
+        <nav>
+<!--            <img src="static/Logo_Claim_A4_RGB.png" />-->
+
+            <div class="nav-links">
+                <ul>
+                    <ion-icon name="mail-outline"></ion-icon><li><a href="{{ url_for('massSend') }}">Mass Send </a></li>
+                    <ion-icon name="person-add-outline"></ion-icon><li><a href="{{ url_for('excelTemp') }}">Add recipient </a></li>
+                    <ion-icon name="bar-chart-outline"></ion-icon><li><a href="{{ url_for('dashboard') }}">Dashboard</a></li>
+                </ul>
+            </div>
+
+        </nav>
+
+        <hr/>
+        </section>
+
+    <div class="text-box">
+        <h1>Emails Automation System</h1>
+        <p class="typed">Sending emails have never been easier with automation....</p>
+<!--        <a href="{{ url_for('massSend') }}" class="main-btn"> Start sending! </a>-->
+    </div>
+    <div class="loader-wrapper">
+        <span class="loader"><span class="loader-inner"></span></span>
+    </div>
+    <script>
+        $(window).on("load", function() {
+            $(".loader-wrapper").fadeOut(1500);
+        });
+    </script>
+</body>
+</html>

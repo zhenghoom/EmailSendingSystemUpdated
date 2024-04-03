@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Landing Page</title>
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+<body id="login-page-body">
+    <div class = "container">
+      <div class = "signin-signup">
+        <form id="signin-form" action="" method="post" class="sign-in-form">
+          <h2 class="title">Sign In</h2>
+          <div class="input-field">
+            <box-icon name='envelope' ></box-icon>
+            <input type="text" name="email" placeholder="Email">
+          </div>
+          <div class="input-field">
+            <box-icon name='lock-alt' ></box-icon>
+            <input type="text" name="password" placeholder="Password">
+          </div>
+          <input type="submit" name="sign-in-btn" value="Login" class="btn">
+
+        </form>
+        <form id="signup-form" action="" method="post" class = "sign-up-form">
+          <h2 class="title">Register an account</h2>
+          <div class="input-field">
+            <box-icon name='envelope' ></box-icon>
+            <input type="email" name="signUpEmail" placeholder="Email" required>
+          </div>
+          <div class="input-field">
+            <box-icon name='user' ></box-icon>
+            <input type="text" name="firstName" placeholder="First Name" required>
+          </div>
+          <div class="input-field">
+            <box-icon name='user' ></box-icon>
+            <input type="text" name="lastName" placeholder="Last Name" required>
+          </div>
+          <div class="input-field">
+            <box-icon name='lock-alt' ></box-icon>
+            <input type="text" name="signUpPassword" id="signUpPassword" placeholder="Password" onInput="passwordValidation()" required>
+          </div>
+          <div class="input-field">
+            <box-icon name='lock-alt' ></box-icon>
+            <input type="text" name="retypePassword" id="retypePassword" placeholder="Retype Password" onInput="passwordValidation()" required>
+          </div>
+          <input type="submit" id="btnSignUp" name="sign-up-btn" value="Sign Up" class="btn" disabled="disabled">
+          <div id="check1">
+            <i class='bx bx-check-circle'></i><span>Password must contain at least 8 characters.</span>
+          </div>
+          <div id="check2">
+            <i class='bx bx-check-circle' ></i><span>Password must contain at least 1 special character.</span>
+          </div>
+          <div id="check3">
+            <i class='bx bx-check-circle' ></i><span>Password must contain numbers and alphabets.</span>
+          </div>
+          <div id="check4">
+            <i class='bx bx-check-circle' ></i><span>Both passwords are the same.</span>
+          </div>
+        </form>
+      </div>
+      <div class="panels-container">
+        <div class="panel left-panel">
+          <div class="content">
+            <h3>Already register your account?</h3>
+            <p>Log in to your account now!</p>
+            <button class="btn" id="sign-in-btn">Sign In</button>
+          </div>
+          <img src="static/signin.svg" alt="" class="image"/>
+        </div>
+        <div class="panel right-panel">
+          <div class="content">
+            <h3>Don't have an account yet?</h3>
+            <p>Register a new account now!</p>
+            <button class="btn" id="sign-up-btn">Sign Up</button>
+          </div>
+          <img src="static/signup.svg" alt="" class="image"/>
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript" src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+</html>

@@ -1,0 +1,1 @@
+Hello,everyone,,I,will,be,testing,the,text,word,cloud,data,that,will,be,generated,after,sending,this,email.,This,is,a,bold,text,This,is,a,underline,text,This,is,a,italic,texttestHello,this,is,a,test,send,material,in,BOLDHello,i,am,currently,testing,the,values,fomatting,features.

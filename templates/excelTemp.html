@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Excel PIR Template</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='script.js') }}">
+    </script>
+</head>
+<body>
+    <div class="home">
+        <a href="{{ url_for('submitLoading') }}"><h3>Back</h3></a>
+        <hr/>
+    </div>
+    <div class="email-template">
+        <form name="exceldata" action="" method="post" enctype="multipart/form-data" onsubmit="return excelValidation()">
+        <h1> Excel PIR Template</h1>
+
+        <div class="content-template">
+            <p>Add distribution list here: </p>
+            <input type="text" name="CSVfile" placeholder="CSV file directory" required>
+            <p>Enter the name of recipient: </p>
+<!--            <textarea rows="20" cols="100" id="emailBody" name="content" placeholder="Enter content here" required></textarea>-->
+            <input type="text" name="name" placeholder="Name" required>
+            <p>Enter the email of recipient: (if more than 1 use ", " to seperate them)</p>
+            <input type="email" name="email" placeholder="Email" required>
+            <p>Enter the subject of email: </p>
+            <input type="text" name="subject" placeholder="Subject" required>
+            <p>Enter the attachment of email: </p>
+            <input type="text" name="attachment" placeholder="Attachment">
+
+        </div>
+            <div class = submit-form>
+                <input type="submit" id="submit" onclick="excelValidation()" value="Submit"/>
+            </div>
+        </form>
+
+    </div>
+    <div class="popup" id="popup">
+        <script src="https://cdn.lordicon.com/lordicon.js"></script>
+        <lord-icon
+            src="https://cdn.lordicon.com/oqdmuxru.json"
+            trigger="loop"
+            delay="1500"
+            state="morph-check-in-1"
+            style="width:250px;height:250px"
+            colors="primary:#00A97A">
+        </lord-icon>
+<!--        <ion-icon name="checkmark-circle-outline"></ion-icon>-->
+        <h2>Success</h2>
+        <p>Your request has been submitted.</p>
+        <button type="button" onclick="closePopup()">OK</button>
+    </div>
+    <div class="errorpopup" id="errorpopup">
+        <script src="https://cdn.lordicon.com/lordicon.js"></script>
+        <lord-icon
+            src="https://cdn.lordicon.com/ygvjgdmk.json"
+            trigger="loop"
+            delay="1500"
+            style="width:250px;height:250px"
+            colors="primary:red">
+        </lord-icon>
+<!--        <ion-icon name="close-circle-outline"></ion-icon>-->
+        <h2>Error</h2>
+        <p id="result"></p>
+        <button type="button" onclick="closeErrorPopup()">OK</button>
+    </div>
+
+</body>
+</html>
