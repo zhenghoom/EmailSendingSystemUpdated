@@ -14,13 +14,13 @@
         <hr>
     </div>
     <div class="wordcloud">
-        <h1>Most frequent words in email content</h1>
-        <img src="{{url_for('static', filename='wordcloud.png') }}" alt="No Image Available">
+        <h1>Most frequent words in email content of {{ month }}</h1>
+        <img src="{{url_for('static', filename='wordcloud.png') }}" alt="No Charts Available">
     </div>
 
     <div class="barchart">
-        <h1>Most words appeared</h1>
-        <img src="{{url_for('static', filename='barchart.png') }}" alt="No Image Available">
+        <h1>Most words appeared of {{ month }}</h1>
+        <img src="{{url_for('static', filename='barchart.png') }}" alt="No Charts Available">
     </div>
 
 </body>

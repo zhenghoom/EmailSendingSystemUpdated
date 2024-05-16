@@ -68,7 +68,8 @@ function validation(){
 //        return false;
 //    }
     else{
-
+        document.getElementById("emailBody").value = document.getElementById("emailBody").value.replaceAll('<br>','')
+        document.getElementById("emailBody").value = document.getElementById("emailBody").value.replaceAll('</p><p>','<br>')
         openPopup();
 
     }
@@ -116,6 +117,13 @@ function openErrorPopup(){
 }
 function closeErrorPopup(){
     document.getElementById("errorpopup").classList.remove("open-slide");
+}
+let paraphrasepopup = document.getElementById("newpopup");
+function openParaphrasePopup(){
+        document.getElementById("newpopup").classList.add("open-slide");
+}
+function closeParaphrasePopup(){
+    document.getElementById("newpopup").classList.remove("open-slide");
 }
 function passwordValidation(){
     var input1 = document.getElementById("signUpPassword").value;
@@ -169,3 +177,10 @@ sign_up_btn.addEventListener("click", ()=> {
 sign_in_btn.addEventListener("click", ()=> {
     container.classList.remove("sign-up-mode");
 });
+
+function handleKeyPress(e){
+
+//     console.log(e.key);
+
+}
+

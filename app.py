@@ -1,4 +1,6 @@
+import os.path
 import time
+from datetime import datetime
 from os import path
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
@@ -117,9 +119,17 @@ def saveValue():
                 template = ' '.join(template.split(char))
             words = template.strip().split()
             print(words)
+            tdy = datetime.now()
+            tdymonth = tdy.strftime("%b")
             combineWords = ','.join(words)
-            txtfile = open("wordContent.txt", 'a')
-            txtfile.write(combineWords)
+            txtfile = open(tdymonth + ".txt", 'a')
+            readfile = open(tdymonth + ".txt", 'r')
+            first_char = readfile.read(1)
+            # txtfile = open("wordContent.txt", 'a')
+            if not first_char:
+                txtfile.write(combineWords)
+            else:
+                txtfile.write("," + combineWords)
             txtfile.close()
 
             return render_template('loading.html'), {"Refresh": "4; url=mass_send"}
@@ -186,10 +196,12 @@ def massSend():
 
 @app.route('/dashboard')
 def dashboard():
-    with open('wordContent.txt','r',encoding='utf-8') as file:
+    tdy = datetime.now()
+    tdymonth = tdy.strftime("%b")
+    month = tdy.strftime("%B")
+    with open(tdymonth + '.txt', 'r', encoding='utf-8') as file:
         word = file.read().lower()
     words = word.split(',')
-    # paraphrase()
 
     if word != '':
         wordcloud = WordCloud(width=800, height=400, background_color='#101820').generate(word)
@@ -210,7 +222,7 @@ def dashboard():
         plt.gca().yaxis.set_major_formatter(ticker.FormatStrFormatter('%d'))
         plt.tight_layout()
         plt.savefig('static/barchart.png')
-        return render_template('dashboard.html')
+        return render_template('dashboard.html', month=month)
     else:
         return render_template('emptyContent.html'), {"Refresh": "4; url=mass_send"}
 

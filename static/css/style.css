@@ -3,7 +3,7 @@
     padding: 0;
 }
 ion-icon {
-    color: #FEE715;
+    color: #696969;
 }
 
 h3{
@@ -35,6 +35,7 @@ h3{
     padding: 0 30px 30px;
     color: #fff;
     overflow: auto;
+    z-index: 1;
 }
 .popup ion-icon{
     color: #00A97A;
@@ -69,6 +70,26 @@ h3{
     overflow: auto;
 }
 .savepopup ion-icon{
+    color: #00A97A;
+    font-size: 100px;
+    margin: 25px;
+}
+.newpopup{
+    width: 400px;
+    background:  #242F3F;
+    border-radius: 6px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%) scale(0);
+    transition: transform .4s, top .4s;
+    text-align: center;
+    padding: 0 30px 30px;
+    color: #fff;
+    overflow: auto;
+    z-index: 2;
+}
+.newpopup ion-icon{
     color: #00A97A;
     font-size: 100px;
     margin: 25px;
@@ -110,11 +131,16 @@ h3{
     transform: translate(-50%, -50%) scale(1);
     visibility: visible;
 }
+.open-newslide{
+    top: 50%;
+    transform: translate(-50%, -50%) scale(1);
+    visibility: visible;
+}
 body{
 
     min-height: 100vh;
     animation: fade-down 1s;
-    background: #101820;
+    background: #000000;
     font-family: 'Poppins';
 
 }
@@ -156,12 +182,12 @@ nav{
     position: relative;
 }
 .nav-links ul li a{
-    color: #FEE715;
+    color: #696969;
     text-decoration: none;
     font-size: 20px;
 }
 .nav-links ul li a:hover{
-    color: #D09683;
+    color: #FEE715;
 }
 .nav-links ul li::after{
     content: '';
@@ -170,13 +196,13 @@ nav{
     background: #fff;
     display: block;
     margin: auto;
-    transition: 0.4s;
+    transition: 0.5s;
 }
 .nav-links ul li:hover::after{
     content: '';
     width: 100%;
     height: 2px;
-    background: #D09683;
+    background: #FEE715;
     display: block;
     margin: auto;
 }
@@ -210,7 +236,7 @@ nav{
 .text-box p{
     margin: 20px;
     font-size: 20px;
-    color: #D09683;
+    color: #800080;
     display: flex;
     justify-content: flex-start;
 }
@@ -238,7 +264,7 @@ nav{
 }
 
 .content-template input{
-    background-color: #F0EDE6;
+    background-color: #222222;
     width: 95%;
     font-size: 15px;
     font-family: 'Poppins';
@@ -246,7 +272,7 @@ nav{
     border-radius: 10px;
     border: 0.5px solid black;
     margin-bottom: 20px;
-    color: black;
+    color: white;
 }
 
 .content-template textarea{
@@ -271,14 +297,14 @@ nav{
     border-width: 3px;
 }
 .content-template p{
-    color: #FEE715;
+    color: #800080;
     font-size: 18px;
     margin-top: 20px;
     margin-bottom: 10px;
 }
 .content-template select{
-    background-color: #F0EDE6;
-    color: black;
+    background-color: #222222;
+    color: white;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -657,22 +683,22 @@ form.sign-up-form{
     margin-bottom: 50px;
 }
 #editor p{
-    color: black;
-    height: 50px;
+    color: white;
+    height: 25px;
 }
 .ql-container {
-    background-color: #f0f0f0;
+    background-color: #222222;
     border-radius: 10px;
 }
 .ql-toolbar.ql-snow {
-    background-color: #f0f0f0;
+    background-color: #222222;
     border-radius: 10px;
 }
 
 .ql-editor {
     height: 400px !important;
     width: 700px;
-    margin-top: 10px;
+    margin-top: 5px;
 }
 .paraphrase-btn{
     margin-top: 10px;
@@ -689,3 +715,4 @@ form.sign-up-form{
     background: #034efd;
     transition: 0.3s;
 }
+

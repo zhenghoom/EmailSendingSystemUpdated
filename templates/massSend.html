@@ -22,7 +22,9 @@
         <hr/>
     </div>
     <div class="email-template">
-        <form name="emaildata" id="emaildata" action="" method="post" enctype="multipart/form-data" onsubmit="return validation()">
+<!--        <form name="emaildata" id="emaildata" action="" method="post" enctype="multipart/form-data" onsubmit="return validation()">-->
+        <form name="emaildata" id="emaildata" action="" method="post" enctype="multipart/form-data">
+
         <h1> Mass Email Send Template</h1>
 
         <div class="content-template">
@@ -32,11 +34,11 @@
             <p>Type <b>'{}'</b> for different values.</p>
 
             <!--Quill editor-->
-            <div id="editor" ></div>
+            <div id="editor"></div>
 
             <textarea rows="20" cols="100" id="emailBody" style="display: none" name="content" placeholder="Enter content here" required></textarea>
 
-            <button type="submit" class="paraphrase-btn" name="paraphrase-btn">Paraphrase</button>
+            <button type="submit" class="paraphrase-btn" name="paraphrase-btn" onclick="openParaphrasePopup()">Paraphrase</button>
             {% if result %}
             <textarea rows="{{length}}" cols="10" class="text1" id="text1" name="text1" placeholder="No text are being paraphrase yet.">{%for i in result%}{{i+"\n"}}{%endfor%}</textarea>
             {% endif %}
@@ -66,7 +68,7 @@
 
         </div>
             <div class="submit-form">
-                <input type="submit" name="submitType" id="submit" onclick="validation()" value="Submit"/>
+                <input type="submit" name="submitType" id="submit" onclick="validation(emaildata)" value="Submit"/>
 
             </div>
             <div class="save-form">
@@ -109,6 +111,17 @@
         <p id="result"></p>
         <button type="button" onclick="closeErrorPopup()">OK</button>
     </div>
+    <div class="newpopup" id="newpopup">
+        <script src="https://cdn.lordicon.com/lordicon.js"></script>
+        <lord-icon
+            src="https://cdn.lordicon.com/lqxfrxad.json"
+            trigger="loop"
+            state="loop-queue"
+            style="width:250px;height:250px"
+            colors="primary:#00A97A">
+        </lord-icon>
+        <h2>Rephrasing the sentences...</h2>
+    </div>
     <!-- Initialize Quill editor -->
     <script>
 
@@ -116,13 +129,17 @@
             theme: 'snow'
          });
          quill.on('text-change', function(delta, oldDelta, source) {
-            console.log(quill.container.firstChild.innerHTML)
+            //console.log(quill.container.firstChild.innerHTML)
             document.getElementById("emailBody").value = quill.container.firstChild.innerHTML;
+<!--            document.getElementById("emailBody").value = document.getElementById("emailBody").value.replaceAll('<p>','')-->
+            document.getElementById("emailBody").value = document.getElementById("emailBody").value.replaceAll('</p><br>','<br>')
+            console.log(document.getElementById("emailBody").value)
          });
         var text1 = document.getElementById('text1');
         if (text1.value.trim() !== ''){
             textarea.style.display = 'block';
         }
+
     </script>
     </body>
 
