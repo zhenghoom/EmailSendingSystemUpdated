@@ -686,6 +686,18 @@ form.sign-up-form{
     color: white;
     height: 25px;
 }
+#editor h1{
+    color: white;
+    height: 25px;
+}
+#editor h2{
+    color: white;
+    height: 25px;
+}
+#editor h3{
+    color: white;
+    height: 25px;
+}
 .ql-container {
     background-color: #222222;
     border-radius: 10px;

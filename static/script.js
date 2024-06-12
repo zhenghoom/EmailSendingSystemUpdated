@@ -62,11 +62,11 @@ function validation(){
         openErrorPopup();
         return false;
     }
-//    else if(document.emaildata.subject.value.length < 5){
-//        document.getElementById("result").innerHTML="*Subject - Please enter proper subject.*";
-//        openErrorPopup();
-//        return false;
-//    }
+    else if (document.emaildata.emailBody.value.trim().length === 0) {
+        document.getElementById("result").innerHTML = "*Email Body - Cannot be empty.*";
+        openErrorPopup();
+        return false;
+    }
     else{
         document.getElementById("emailBody").value = document.getElementById("emailBody").value.replaceAll('<br>','')
         document.getElementById("emailBody").value = document.getElementById("emailBody").value.replaceAll('</p><p>','<br>')
@@ -75,21 +75,21 @@ function validation(){
     }
 }
 function excelValidation(){
-    if(document.exceldata.excelfile.value.length < 35){
-        document.getElementById("result").innerHTML="*Excel file - Please enter proper file directory.*";
+    if(document.exceldata.CSVfile.value.length < 35){
+        document.getElementById("result").innerHTML="*CSV file - Please enter proper file directory.*";
         openErrorPopup();
         return false;
     }
-    else if(document.exceldata.vendor.value.length < 7){
-        document.getElementById("result").innerHTML="*Vendor Code - Please enter proper vendor code.*";
+    else if(document.exceldata.name.value.length < 2){
+        document.getElementById("result").innerHTML="*Name - Please enter proper name.*";
         openErrorPopup();
         return false;
     }
-//    else if(document.exceldata.orderunit.value != "/^[A-Za-z]+$/"){
-//        document.getElementById("result").innerHTML="*Order Unit - Please enter proper unit.*";
-//        openErrorPopup();
-//        return false;
-//    }
+    else if(document.exceldata.subject.value.length < 3){
+        document.getElementById("result").innerHTML="*Subject - Please enter proper subject.*";
+        openErrorPopup();
+        return false;
+    }
     else{
         openPopup();
 
